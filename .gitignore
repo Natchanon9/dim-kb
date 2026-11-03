@@ -1,0 +1,12 @@
+dist/
+.astro/
+node_modules/
+.env
+.env.production
+.DS_Store
+npm-debug.log*
+pnpm-debug.log*
+
+# Local-only notes and Claude Code context
+PLAN.md
+.claude/

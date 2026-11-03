@@ -1,0 +1,29 @@
+---
+title: dim-kb
+description: คลังความรู้ส่วนตัว เอาไว้กลับมาทบทวน — Go, Rust, DevOps
+template: splash
+hero:
+  tagline: สรุปเป็นภาษาตัวเอง พร้อม code snippet ที่รันได้ เอาไว้กลับมาทบทวน
+  actions:
+    - text: เริ่มที่ Go
+      link: go/
+      icon: right-arrow
+    - text: GitHub
+      link: https://github.com/Natchanon9/dim-kb
+      icon: github
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+<CardGrid>
+	<Card title="Go" icon="seti:go">
+		ภาษา, concurrency, HTTP API, database, testing, deploy
+	</Card>
+	<Card title="Rust" icon="seti:rust">
+		เร็วๆ นี้
+	</Card>
+	<Card title="DevOps" icon="seti:docker">
+		เร็วๆ นี้
+	</Card>
+</CardGrid>

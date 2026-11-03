@@ -1,0 +1,29 @@
+---
+title: dim-kb
+description: Personal knowledge base for review — Go, Rust, DevOps
+template: splash
+hero:
+  tagline: Notes in my own words, with runnable code snippets, for later review.
+  actions:
+    - text: Start with Go
+      link: go/
+      icon: right-arrow
+    - text: GitHub
+      link: https://github.com/Natchanon9/dim-kb
+      icon: github
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+<CardGrid>
+	<Card title="Go" icon="seti:go">
+		Language, concurrency, HTTP APIs, databases, testing, deployment
+	</Card>
+	<Card title="Rust" icon="seti:rust">
+		Coming soon
+	</Card>
+	<Card title="DevOps" icon="seti:docker">
+		Coming soon
+	</Card>
+</CardGrid>

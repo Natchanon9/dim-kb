@@ -1,0 +1,5 @@
+/* Thai-friendly font stack + slightly larger line height for Thai text */
+:root {
+	--sl-font: 'IBM Plex Sans Thai', 'Noto Sans Thai', system-ui, sans-serif;
+	--sl-line-height: 1.8;
+}
