@@ -1,7 +1,8 @@
 ---
 title: Go
 description: Go notes, section by section
-status: draft
+status: done
+lastReviewed: 2026-11-03
 ---
 
 Go notes in 27 sections, one short page per topic. Read in sidebar order.

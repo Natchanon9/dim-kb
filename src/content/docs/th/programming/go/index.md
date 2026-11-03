@@ -1,7 +1,8 @@
 ---
 title: Go
 description: สรุป Go ทีละหมวด
-status: draft
+status: done
+lastReviewed: 2026-11-03
 ---
 
 สรุป Go 27 หมวด หน้าละ 1 เรื่องสั้นๆ อ่านตามลำดับ sidebar ได้เลย
