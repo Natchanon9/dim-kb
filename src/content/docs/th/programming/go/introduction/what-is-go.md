@@ -52,14 +52,6 @@ http.ListenAndServe(":8080", mux)
 
 format โค้ดมีแบบเดียว (`gofmt`) error เป็นค่าธรรมดาที่เช็คด้วย `if err != nil` ไม่มี exception, operator overloading หรือ macro โค้ดทุกทีมจึงหน้าตาเหมือนกัน แลกกับการพิมพ์ยาวขึ้นนิดหน่อย
 
-## Go เหมาะกับงานไหน
-
-| เหมาะ | ไม่เหมาะ |
-| --- | --- |
-| REST API, microservice | GUI และ mobile app แบบ native |
-| CLI และงาน infra (Docker, Kubernetes, Terraform) | ML และ data science |
-| Proxy และ network service | Kernel, driver, hard real-time |
-
 :::caution[ข้อควรระวัง]
 - อย่าเขียน Go แบบ Java: ไม่ต้องมี class hierarchy หรือ getter/setter ทุก field
 - goroutine เบาแต่ไม่ฟรี ตัวที่ไม่จบ = memory leak

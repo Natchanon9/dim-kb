@@ -52,14 +52,6 @@ http.ListenAndServe(":8080", mux)
 
 One code format (`gofmt`). Errors are plain values checked with `if err != nil`. No exceptions, operator overloading or macros. Code looks the same across teams, at the cost of a little more typing.
 
-## Where Go fits
-
-| Good fit | Poor fit |
-| --- | --- |
-| REST APIs, microservices | GUI and native mobile apps |
-| CLIs and infra tooling (Docker, Kubernetes, Terraform) | ML and data science |
-| Proxies and network services | Kernels, drivers, hard real-time |
-
 :::caution[Pitfalls]
 - Don't write Go like Java: no class hierarchies, no getter/setter for every field.
 - Goroutines are cheap, not free. One that never exits is a memory leak.
