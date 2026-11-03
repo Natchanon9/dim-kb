@@ -1,0 +1,15 @@
+---
+title: Programming
+description: "ภาษาโปรแกรม แต่ละภาษามี sidebar ของตัวเอง"
+template: splash
+hero:
+  tagline: ภาษาโปรแกรม แต่ละภาษามี sidebar ของตัวเอง
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+<CardGrid>
+	<LinkCard title="Go" description="พื้นฐาน, concurrency, generics และ ecosystem สำหรับงาน backend" href="go/" />
+	<LinkCard title="Rust" description="เร็วๆ นี้: ownership, async, Axum" href="rust/" />
+	<LinkCard title="TypeScript" description="เร็วๆ นี้: type system, React, Node" href="typescript/" />
+</CardGrid>

@@ -1,6 +1,6 @@
 # Dim Kb
 
-Personal knowledge base (Go, Rust, DevOps) built with [Astro Starlight](https://starlight.astro.build).
+Personal knowledge base built with [Astro Starlight](https://starlight.astro.build).
 
 The site supports two languages:
 
@@ -27,11 +27,10 @@ cd examples/go && go test ./...   # snippets used in the docs
 ```text
 src/content/docs/
 ├─ index.mdx              # home page (English)
-├─ go/<section>/<page>.md # English source pages
-├─ rust/  devops/
+├─ programming/           # one folder per language: go/ (sections → pages), rust/, typescript/
 └─ th/                    # Thai translations, same paths
-astro.config.ts           # Starlight config: locales, base path, sidebar
-src/sidebar.ts            # Go sidebar groups (English labels + Thai translations)
+astro.config.ts           # Starlight config: locales, base path, plugins
+src/sidebar.ts            # one sidebar topic per language (English labels + Thai translations)
 src/content.config.ts     # extra frontmatter: lastReviewed, status
 src/styles/custom.css     # site styling (Inter, Noto Sans Thai, JetBrains Mono; self-hosted)
 examples/go/              # Go module holding every code snippet
@@ -43,9 +42,9 @@ examples/go/              # Go module holding every code snippet
 2. Write the code in `examples/go/<section>/<page>/` and make `go test` pass.
 3. Write the page: a 1–2 sentence intro, one short section per concept with its code, and a Pitfalls callout at the end.
 4. Set `status: done` and `lastReviewed: YYYY-MM-DD`.
-5. Translate it to `src/content/docs/th/go/<section>/<page>.md`.
+5. Translate it to `src/content/docs/th/programming/go/<section>/<page>.md`.
 
-Find pages not written yet: `grep -rl "status: draft" src/content/docs/go`
+Find pages not written yet: `grep -rl "status: draft" src/content/docs/programming`
 
 ## Deploy
 

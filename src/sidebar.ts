@@ -1,260 +1,66 @@
-// Sidebar for dim-kb. Each group autogenerates from its folder;
-// page order inside a group = `sidebar.order` in frontmatter.
+// Sidebar topics for Dim Kb (starlight-sidebar-topics): one topic per language, each with its own sidebar.
+// Each section autogenerates from its folder; page order inside a section = `sidebar.order` in frontmatter.
 import type { StarlightUserConfig } from '@astrojs/starlight/types';
 
 type SidebarItem = NonNullable<StarlightUserConfig['sidebar']>[number];
 
-export const goSidebar: SidebarItem[] = [
+/** A collapsed section that lists every page in `programming/<dir>`. */
+function section(label: string, th: string, dir: string): SidebarItem {
+	return { label, translations: { th }, collapsed: true, items: [{ autogenerate: { directory: `programming/${dir}` } }] };
+}
+
+function overview(slug: string): SidebarItem {
+	return { label: 'Overview', translations: { th: 'ภาพรวม' }, slug };
+}
+
+const goItems: SidebarItem[] = [
+	overview('programming/go'),
 	{
-		"label": "Getting Started",
-		"translations": {
-			"th": "เริ่มต้น"
-		},
-		"collapsed": true,
-		"items": [
-			{
-				"autogenerate": {
-					"directory": "go/intro"
-				}
-			}
-		]
+		label: 'Fundamentals',
+		translations: { th: 'พื้นฐาน' },
+		items: [
+			section('Getting Started', 'เริ่มต้น', 'go/intro'),
+			section('Basic Syntax', 'Syntax พื้นฐาน', 'go/basics'),
+			section('Control Flow', 'Control Flow', 'go/control'),
+			section('Functions', 'Functions', 'go/functions'),
+			section('Slices & Maps', 'Slices และ Maps', 'go/collections'),
+			section('Strings', 'Strings', 'go/strings'),
+			section('Structs & Interfaces', 'Structs และ Interfaces', 'go/types'),
+			section('Pointers', 'Pointers', 'go/pointers'),
+			section('Error Handling', 'Error Handling', 'go/errors'),
+			section('Packages & Modules', 'Packages และ Modules', 'go/modules'),
+		],
 	},
 	{
-		"label": "Basic Syntax",
-		"translations": {
-			"th": "Syntax พื้นฐาน"
-		},
-		"collapsed": true,
-		"items": [
-			{
-				"autogenerate": {
-					"directory": "go/basics"
-				}
-			}
-		]
+		label: 'Concurrency',
+		translations: { th: 'Concurrency' },
+		items: [{ autogenerate: { directory: 'programming/go/concurrency' } }],
 	},
 	{
-		"label": "Control Flow",
-		"translations": {
-			"th": "Control Flow"
-		},
-		"collapsed": true,
-		"items": [
-			{
-				"autogenerate": {
-					"directory": "go/control"
-				}
-			}
-		]
+		label: 'Advanced',
+		translations: { th: 'ขั้นสูง' },
+		items: [section('Generics', 'Generics', 'go/generics')],
 	},
 	{
-		"label": "Functions",
-		"translations": {
-			"th": "Functions"
-		},
-		"collapsed": true,
-		"items": [
-			{
-				"autogenerate": {
-					"directory": "go/functions"
-				}
-			}
-		]
+		label: 'Ecosystem',
+		translations: { th: 'Ecosystem' },
+		items: [
+			section('HTTP & APIs', 'HTTP และ API', 'go/web'),
+			section('Database', 'Database', 'go/database'),
+			section('Architecture', 'Architecture', 'go/architecture'),
+			section('Testing', 'Testing', 'go/testing'),
+			section('Deploy & Tooling', 'Deploy และ Tooling', 'go/deploy'),
+		],
 	},
 	{
-		"label": "Slices & Maps",
-		"translations": {
-			"th": "Slices และ Maps"
-		},
-		"collapsed": true,
-		"items": [
-			{
-				"autogenerate": {
-					"directory": "go/collections"
-				}
-			}
-		]
+		label: 'Reference',
+		translations: { th: 'Reference' },
+		items: [{ autogenerate: { directory: 'programming/go/reference' } }],
 	},
-	{
-		"label": "Strings",
-		"translations": {
-			"th": "Strings"
-		},
-		"collapsed": true,
-		"items": [
-			{
-				"autogenerate": {
-					"directory": "go/strings"
-				}
-			}
-		]
-	},
-	{
-		"label": "Structs & Interfaces",
-		"translations": {
-			"th": "Structs และ Interfaces"
-		},
-		"collapsed": true,
-		"items": [
-			{
-				"autogenerate": {
-					"directory": "go/types"
-				}
-			}
-		]
-	},
-	{
-		"label": "Pointers",
-		"translations": {
-			"th": "Pointers"
-		},
-		"collapsed": true,
-		"items": [
-			{
-				"autogenerate": {
-					"directory": "go/pointers"
-				}
-			}
-		]
-	},
-	{
-		"label": "Error Handling",
-		"translations": {
-			"th": "Error Handling"
-		},
-		"collapsed": true,
-		"items": [
-			{
-				"autogenerate": {
-					"directory": "go/errors"
-				}
-			}
-		]
-	},
-	{
-		"label": "Packages & Modules",
-		"translations": {
-			"th": "Packages และ Modules"
-		},
-		"collapsed": true,
-		"items": [
-			{
-				"autogenerate": {
-					"directory": "go/modules"
-				}
-			}
-		]
-	},
-	{
-		"label": "Concurrency",
-		"translations": {
-			"th": "Concurrency"
-		},
-		"collapsed": true,
-		"items": [
-			{
-				"autogenerate": {
-					"directory": "go/concurrency"
-				}
-			}
-		]
-	},
-	{
-		"label": "Generics",
-		"translations": {
-			"th": "Generics"
-		},
-		"collapsed": true,
-		"items": [
-			{
-				"autogenerate": {
-					"directory": "go/generics"
-				}
-			}
-		]
-	},
-	{
-		"label": "HTTP & APIs",
-		"translations": {
-			"th": "HTTP และ API"
-		},
-		"collapsed": true,
-		"items": [
-			{
-				"autogenerate": {
-					"directory": "go/web"
-				}
-			}
-		]
-	},
-	{
-		"label": "Database",
-		"translations": {
-			"th": "Database"
-		},
-		"collapsed": true,
-		"items": [
-			{
-				"autogenerate": {
-					"directory": "go/database"
-				}
-			}
-		]
-	},
-	{
-		"label": "Architecture",
-		"translations": {
-			"th": "Architecture"
-		},
-		"collapsed": true,
-		"items": [
-			{
-				"autogenerate": {
-					"directory": "go/architecture"
-				}
-			}
-		]
-	},
-	{
-		"label": "Testing",
-		"translations": {
-			"th": "Testing"
-		},
-		"collapsed": true,
-		"items": [
-			{
-				"autogenerate": {
-					"directory": "go/testing"
-				}
-			}
-		]
-	},
-	{
-		"label": "Deploy & Tooling",
-		"translations": {
-			"th": "Deploy และ Tooling"
-		},
-		"collapsed": true,
-		"items": [
-			{
-				"autogenerate": {
-					"directory": "go/deploy"
-				}
-			}
-		]
-	},
-	{
-		"label": "Reference",
-		"translations": {
-			"th": "Reference"
-		},
-		"collapsed": true,
-		"items": [
-			{
-				"autogenerate": {
-					"directory": "go/reference"
-				}
-			}
-		]
-	}
+];
+
+export const programmingTopics = [
+	{ label: 'Go', link: '/programming/go/', icon: 'seti:go', items: goItems },
+	{ label: 'Rust', link: '/programming/rust/', icon: 'seti:rust', items: [overview('programming/rust')] },
+	{ label: 'TypeScript', link: '/programming/typescript/', icon: 'seti:typescript', items: [overview('programming/typescript')] },
 ];

@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import { goSidebar } from './src/sidebar';
+import starlightSidebarTopics from 'starlight-sidebar-topics';
+import { programmingTopics } from './src/sidebar';
 
 // GitHub Pages: https://natchanon9.github.io/dim-kb/
 export default defineConfig({
@@ -30,14 +31,7 @@ export default defineConfig({
 			expressiveCode: {
 				styleOverrides: { borderRadius: '0.75rem', codePaddingBlock: '1rem', codePaddingInline: '1.25rem' },
 			},
-			sidebar: [
-				{
-					label: 'Go',
-					items: [{ label: 'Overview', translations: { th: 'ภาพรวม' }, slug: 'go' }, ...goSidebar],
-				},
-				{ label: 'Rust', collapsed: true, items: [{ label: 'Overview', translations: { th: 'ภาพรวม' }, slug: 'rust' }] },
-				{ label: 'DevOps', collapsed: true, items: [{ label: 'Overview', translations: { th: 'ภาพรวม' }, slug: 'devops' }] },
-			],
+			plugins: [starlightSidebarTopics(programmingTopics)],
 		}),
 	],
 });

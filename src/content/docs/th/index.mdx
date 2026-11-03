@@ -1,12 +1,12 @@
 ---
 title: Dim Kb
-description: "คลังความรู้ส่วนตัว เอาไว้กลับมาทบทวน: Go, Rust, DevOps"
+description: "คลังความรู้ส่วนตัว เอาไว้กลับมาทบทวน: เริ่มจากภาษาโปรแกรม หมวดอื่นตามมาทีหลัง"
 template: splash
 hero:
-  tagline: สรุปเป็นภาษาตัวเอง พร้อม code snippet ที่รันได้ เอาไว้กลับมาทบทวน
+  tagline: สรุปเป็นภาษาตัวเอง พร้อมโค้ดที่รันได้ เอาไว้กลับมาทบทวน
   actions:
     - text: เริ่มที่ Go
-      link: go/
+      link: programming/go/
       icon: right-arrow
     - text: GitHub
       link: https://github.com/Natchanon9/dim-kb
@@ -14,16 +14,12 @@ hero:
       variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+## Programming
 
 <CardGrid>
-	<Card title="Go" icon="seti:go">
-		ภาษา, concurrency, HTTP API, database, testing, deploy
-	</Card>
-	<Card title="Rust" icon="seti:rust">
-		เร็วๆ นี้
-	</Card>
-	<Card title="DevOps" icon="seti:docker">
-		เร็วๆ นี้
-	</Card>
+	<LinkCard title="Go" description="พื้นฐาน, concurrency, generics และ ecosystem สำหรับงาน backend" href="programming/go/" />
+	<LinkCard title="Rust" description="เร็วๆ นี้: ownership, async, Axum" href="programming/rust/" />
+	<LinkCard title="TypeScript" description="เร็วๆ นี้: type system, React, Node" href="programming/typescript/" />
 </CardGrid>

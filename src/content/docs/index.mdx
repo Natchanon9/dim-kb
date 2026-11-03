@@ -1,12 +1,12 @@
 ---
 title: Dim Kb
-description: "Personal knowledge base for review: Go, Rust, DevOps"
+description: "Personal knowledge base for review: programming languages first, more topics later"
 template: splash
 hero:
-  tagline: Notes in my own words, with runnable code snippets, for later review.
+  tagline: Notes in my own words, with runnable code, for later review.
   actions:
     - text: Start with Go
-      link: go/
+      link: programming/go/
       icon: right-arrow
     - text: GitHub
       link: https://github.com/Natchanon9/dim-kb
@@ -14,16 +14,12 @@ hero:
       variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+## Programming
 
 <CardGrid>
-	<Card title="Go" icon="seti:go">
-		Language, concurrency, HTTP APIs, databases, testing, deployment
-	</Card>
-	<Card title="Rust" icon="seti:rust">
-		Coming soon
-	</Card>
-	<Card title="DevOps" icon="seti:docker">
-		Coming soon
-	</Card>
+	<LinkCard title="Go" description="Fundamentals, concurrency, generics, and the backend ecosystem" href="programming/go/" />
+	<LinkCard title="Rust" description="Coming soon: ownership, async, Axum" href="programming/rust/" />
+	<LinkCard title="TypeScript" description="Coming soon: type system, React, Node" href="programming/typescript/" />
 </CardGrid>
