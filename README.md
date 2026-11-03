@@ -1,4 +1,4 @@
-# dim-kb
+# Dim Kb
 
 Personal knowledge base (Go, Rust, DevOps) built with [Astro Starlight](https://starlight.astro.build).
 
@@ -32,15 +32,16 @@ src/content/docs/
 └─ th/                    # Thai translations, same paths
 astro.config.ts           # Starlight config: locales, base path, sidebar
 src/sidebar.ts            # Go sidebar groups (English labels + Thai translations)
-src/content.config.ts     # extra frontmatter: sources, lastReviewed, status
+src/content.config.ts     # extra frontmatter: lastReviewed, status
+src/styles/custom.css     # site styling (Inter, Noto Sans Thai, JetBrains Mono; self-hosted)
 examples/go/              # Go module holding every code snippet
 ```
 
 ## Writing a page
 
-1. Read the links listed in the page's `sources:` frontmatter.
+1. Read up on the topic and take notes in your own words.
 2. Write the code in `examples/go/<section>/<page>/` and make `go test` pass.
-3. Fill in TL;DR / Concept / Code / Gotchas / When to use, in your own words.
+3. Write the page: a 1–2 sentence intro, one short section per concept with its code, and a Pitfalls callout at the end.
 4. Set `status: done` and `lastReviewed: YYYY-MM-DD`.
 5. Translate it to `src/content/docs/th/go/<section>/<page>.md`.
 

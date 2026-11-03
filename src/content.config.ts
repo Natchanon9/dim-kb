@@ -8,8 +8,6 @@ export const collections = {
 		loader: docsLoader(),
 		schema: docsSchema({
 			extend: z.object({
-				/** Source pages this note summarises (algomaster, mikelopster, go.dev ...) */
-				sources: z.array(z.string().url()).default([]),
 				/** Last time I re-read / verified this page */
 				lastReviewed: z.coerce.date().optional(),
 				/** draft = stub not written yet, done = summarised */

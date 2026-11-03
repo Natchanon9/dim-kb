@@ -5,31 +5,31 @@ sidebar:
   order: 1
 status: done
 lastReviewed: 2026-11-03
-sources:
-  - https://algomaster.io/learn/go/what-is-go
-  - https://algomaster.io/learn/go/why-go
-  - https://mikelopster.dev/docs/c/goapi-essential/chapter-1/intro
 ---
 
-## TL;DR
+Go เป็นภาษา compiled, statically typed และมี garbage collector จาก Google เปิดเป็น open source ตั้งแต่ปี 2009 ออกแบบมาให้โค้ด server ขนาดใหญ่ compile เร็วและอ่านง่าย
 
-- Go = ภาษา **compiled + statically typed + garbage-collected** จาก Google (Griesemer, Pike, Thompson เริ่ม 2007, open source 2009)
-- ออกแบบให้ **เรียบง่าย**: keyword แค่ 25 ตัว, loop มีแค่ `for`, ไม่มี class / inheritance ใช้ struct + interface แทน
-- **Concurrency ในตัวภาษา**: goroutine เบามาก (stack เริ่มแค่ไม่กี่ KB) คุยกันผ่าน channel
-- Build ออกมาเป็น **single binary** ไม่ต้องลง runtime/VM — deploy ง่าย, cross-compile ได้เลย
-- Stdlib แน่น: HTTP server, JSON, crypto, testing พร้อมใช้ production
+## คุณสมบัติหลัก 3 ข้อ
 
-## แนวคิด
+| คุณสมบัติ | ความหมาย |
+| --- | --- |
+| **Compiled** | build เป็น machine code ตอนรันไม่ต้องมี VM |
+| **Statically typed** | type ผิดเจอตั้งแต่ตอน compile |
+| **Garbage-collected** | คืน memory ให้อัตโนมัติ |
 
-Go เกิดจากความหงุดหงิดของทีม Google กับ C++ ที่ build ทีละหลายสิบนาที และโค้ดสาย Java ที่ inheritance ซ้อนกันจนอ่านยาก เป้าหมายเลยคือภาษาที่ compile เร็ว อ่านง่าย และเขียนโปรแกรม server ที่รับ request พร้อมกันเยอะๆ ได้โดยไม่ต้องปวดหัว
+## อะไรทำให้ Go ต่างจากภาษาอื่น
 
-ปรัชญาหลักคือ **explicit ดีกว่า clever**: format โค้ดมีแบบเดียว (`gofmt`), error เป็นค่าธรรมดาที่ต้อง `if err != nil` เอง ไม่มี exception, ไม่มี operator overloading หรือ macro ผลคือโค้ดของทุกคนหน้าตาคล้ายกัน เปิด repo คนอื่นแล้วอ่านรู้เรื่องเร็ว แลกกับการที่ต้องพิมพ์ยาวขึ้นนิดหน่อย
+### เรียบง่ายโดยตั้งใจ
 
-ข้อแลกเปลี่ยนที่ควรรู้: generics เพิ่งมาใน 1.18, ecosystem เล็กกว่า Java/Python, GC ทำให้คุม memory ได้น้อยกว่า Rust/C++ และไม่เหมาะกับ GUI, mobile native, ML/data science
+มี keyword แค่ 25 ตัว loop มีแค่ `for` และไม่มี class หรือ inheritance ใช้ struct กับ interface แทนได้โดยไม่ต้องเขียนพิธีเยอะ
 
-## Code
+### Concurrency อยู่ในตัวภาษา
 
-API ตัวเล็กที่สุดด้วย stdlib ล้วน ไม่ต้องลง framework (Go 1.22+ ใส่ method และ path param ใน pattern ได้)
+goroutine คือ function ที่รันไปพร้อมกับส่วนอื่นของโปรแกรม stack เริ่มต้นแค่ไม่กี่ KB รันพร้อมกันเป็นพันตัวก็เป็นเรื่องปกติ และส่งข้อมูลหากันผ่าน channel
+
+### Stdlib ครบ
+
+HTTP, JSON, crypto และ testing มากับภาษาเลย ทำ JSON API ได้โดยไม่ต้องใช้ framework:
 
 ```go title="hello.go"
 mux := http.NewServeMux()
@@ -40,26 +40,28 @@ mux.HandleFunc("GET /hello/{name}", func(w http.ResponseWriter, r *http.Request)
 	})
 })
 http.ListenAndServe(":8080", mux)
-// GET  /hello/gopher -> {"message":"hello gopher"}
-// POST /hello/gopher -> 405 Method Not Allowed (ได้ฟรีจาก pattern)
 ```
 
-ตัวเต็ม + test: `examples/go/intro/what-is-go/`
+`GET /hello/gopher` ได้ `{"message":"hello gopher"}` ส่วน `POST` ได้ `405` ทันทีเพราะ method อยู่ใน pattern แล้ว (Go 1.22+)
 
-## Gotchas
+### Binary ไฟล์เดียว
 
-:::caution
-- "เรียบง่าย" ≠ "ทำได้น้อย" แต่หมายถึงมีทางทำแค่ไม่กี่ทาง — อย่าพยายามเขียน Go ให้เหมือน Java (class hierarchy, getter/setter ทุก field)
-- Goroutine เบาก็จริง แต่ไม่ได้ฟรี: ปล่อยค้างไว้ = goroutine leak กิน memory เรื่อยๆ (ดูหมวด Concurrency)
-- Single binary ใหญ่กว่า C/C++ เพราะรวม runtime + GC มาด้วย
+`go build` ได้ executable ไฟล์เดียวที่รันได้เลย cross-compile ก็แค่ตั้ง env ตัวเดียว: `GOOS=linux go build`
+
+## Explicit ดีกว่า clever
+
+format โค้ดมีแบบเดียว (`gofmt`) error เป็นค่าธรรมดาที่เช็คด้วย `if err != nil` ไม่มี exception, operator overloading หรือ macro โค้ดทุกทีมจึงหน้าตาเหมือนกัน แลกกับการพิมพ์ยาวขึ้นนิดหน่อย
+
+## Go เหมาะกับงานไหน
+
+| เหมาะ | ไม่เหมาะ |
+| --- | --- |
+| REST API, microservice | GUI และ mobile app แบบ native |
+| CLI และงาน infra (Docker, Kubernetes, Terraform) | ML และ data science |
+| Proxy และ network service | Kernel, driver, hard real-time |
+
+:::caution[ข้อควรระวัง]
+- อย่าเขียน Go แบบ Java: ไม่ต้องมี class hierarchy หรือ getter/setter ทุก field
+- goroutine เบาแต่ไม่ฟรี ตัวที่ไม่จบ = memory leak
+- binary ใหญ่กว่า C/C++ เพราะรวม runtime และ GC มาด้วย
 :::
-
-## ใช้จริงเมื่อไหร่
-
-เลือก Go เมื่อทำ REST API / microservice / CLI / งาน infra (Docker, Kubernetes, Terraform เขียนด้วย Go ทั้งหมด) — โดยเฉพาะงานที่ต้องรับ concurrent request เยอะและอยาก deploy เป็น container เล็กๆ
-
-## อ้างอิง
-
-- <https://algomaster.io/learn/go/what-is-go>
-- <https://algomaster.io/learn/go/why-go>
-- <https://mikelopster.dev/docs/c/goapi-essential/chapter-1/intro>

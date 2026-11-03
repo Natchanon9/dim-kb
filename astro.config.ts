@@ -8,8 +8,8 @@ export default defineConfig({
 	base: '/dim-kb',
 	integrations: [
 		starlight({
-			title: 'dim-kb',
-			description: 'Personal knowledge base — Go, Rust, DevOps',
+			title: 'Dim Kb',
+			description: 'Personal knowledge base: Go, Rust, DevOps',
 			favicon: '/favicon.svg',
 			defaultLocale: 'root',
 			locales: {
@@ -20,18 +20,16 @@ export default defineConfig({
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/Natchanon9/dim-kb' }],
 			editLink: { baseUrl: 'https://github.com/Natchanon9/dim-kb/edit/main/' },
 			lastUpdated: true,
-			customCss: ['./src/styles/custom.css'],
-			head: [
-				{ tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.googleapis.com' } },
-				{ tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' } },
-				{
-					tag: 'link',
-					attrs: {
-						rel: 'stylesheet',
-						href: 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap',
-					},
-				},
+			customCss: [
+				// Self-hosted fonts (design option C): Inter for Latin, Noto Sans Thai for Thai, JetBrains Mono for code
+				'@fontsource-variable/inter',
+				'@fontsource-variable/noto-sans-thai',
+				'@fontsource-variable/jetbrains-mono',
+				'./src/styles/custom.css',
 			],
+			expressiveCode: {
+				styleOverrides: { borderRadius: '0.75rem', codePaddingBlock: '1rem', codePaddingInline: '1.25rem' },
+			},
 			sidebar: [
 				{
 					label: 'Go',
