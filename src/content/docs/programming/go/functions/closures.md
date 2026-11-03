@@ -1,11 +1,10 @@
 ---
-title: "First-class functions and closures"
-description: "Functions as values, anonymous functions, closures"
+title: "Closures"
 sidebar:
-  order: 2
+  order: 7
 status: draft
 ---
 
 :::caution[Not written yet]
-This page is a placeholder. The description above shows what it will cover.
+This page is a placeholder.
 :::

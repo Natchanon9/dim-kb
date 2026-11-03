@@ -1,16 +1,16 @@
 ---
 title: Go
-description: Go notes for backend work, in reading order
+description: Go notes, section by section
 status: draft
 ---
 
-Go notes limited to what backend work actually uses. Read in sidebar order.
+Go notes in 27 sections, one short page per topic. Read in sidebar order.
 
-| Group | Sections | Covers |
-| --- | --- | --- |
-| Fundamentals | Getting Started → Packages & Modules | Syntax, types, errors, modules |
-| Concurrency | Concurrency | Goroutines, channels, sync, context |
-| Advanced | Generics | Type parameters and constraints |
-| Ecosystem | HTTP & APIs → Deploy & Tooling | net/http, Fiber, PostgreSQL, GORM, testing, Docker |
+| Part | Sections |
+| --- | --- |
+| Core language | Introduction to Go → Packages & Modules |
+| Concurrency | Goroutines, Channels, Concurrency Patterns, Context Package |
+| Beyond the basics | Generics → Best Practices |
+| Backend Practice | Fiber, GORM, Architecture, Deploy |
 
 Every snippet is a real, tested program in `examples/go/<section>/<page>/`. Technical terms stay in English in the Thai version; see the [Glossary](/dim-kb/programming/go/reference/glossary/).

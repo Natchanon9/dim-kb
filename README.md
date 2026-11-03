@@ -27,7 +27,7 @@ cd examples/go && go test ./...   # snippets used in the docs
 ```text
 src/content/docs/
 ├─ index.mdx              # home page (English)
-├─ programming/           # one folder per language: go/ (sections → pages), rust/, typescript/
+├─ programming/           # one folder per language: go/<section>/<page>.md, rust/, typescript/
 └─ th/                    # Thai translations, same paths
 astro.config.ts           # Starlight config: locales, base path, plugins
 src/sidebar.ts            # one sidebar topic per language (English labels + Thai translations)

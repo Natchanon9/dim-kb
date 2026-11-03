@@ -1,16 +1,16 @@
 ---
 title: Go
-description: สรุป Go สำหรับงาน backend เรียงตามลำดับการอ่าน
+description: สรุป Go ทีละหมวด
 status: draft
 ---
 
-สรุป Go เฉพาะส่วนที่ใช้จริงในงาน backend อ่านตามลำดับ sidebar ได้เลย
+สรุป Go 27 หมวด หน้าละ 1 เรื่องสั้นๆ อ่านตามลำดับ sidebar ได้เลย
 
-| กลุ่ม | หมวด | เนื้อหา |
-| --- | --- | --- |
-| พื้นฐาน | เริ่มต้น → Packages และ Modules | syntax, type, error, module |
-| Concurrency | Concurrency | goroutine, channel, sync, context |
-| ขั้นสูง | Generics | type parameter และ constraint |
-| Ecosystem | HTTP และ API → Deploy และ Tooling | net/http, Fiber, PostgreSQL, GORM, testing, Docker |
+| ส่วน | หมวด |
+| --- | --- |
+| ตัวภาษา | แนะนำ Go → Packages และ Modules |
+| Concurrency | Goroutines, Channels, Concurrency Patterns, Context Package |
+| เกินพื้นฐาน | Generics → Best Practices |
+| ฝึกทำ Backend | Fiber, GORM, Architecture, Deploy |
 
 ทุก snippet เป็นโปรแกรมจริงที่ผ่าน test อยู่ใน `examples/go/<หมวด>/<หน้า>/` ศัพท์เทคนิคคงเป็นอังกฤษ ดู [Glossary](/dim-kb/th/programming/go/reference/glossary/)

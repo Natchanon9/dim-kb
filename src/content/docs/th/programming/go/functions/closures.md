@@ -1,11 +1,10 @@
 ---
-title: "First-class function และ Closure"
-description: "function เป็นค่า, anonymous function, closure"
+title: "Closures"
 sidebar:
-  order: 2
+  order: 7
 status: draft
 ---
 
 :::caution[ยังไม่ได้เขียน]
-หน้านี้เป็นโครงไว้ก่อน ดูหัวข้อที่จะสรุปจาก description ด้านบน
+หน้านี้เป็นโครงไว้ก่อน
 :::
